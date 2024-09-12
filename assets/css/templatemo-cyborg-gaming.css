@@ -181,7 +181,7 @@ p {
 .main-button a {
   font-size: 16px;
   color: #ffffff;
-  background-color: #7d10e3;
+  background-color: #3e07cb;
   padding: 12px 30px;
   display: inline-block;
   border-radius: 25px;
@@ -195,7 +195,7 @@ p {
 
 .main-button a:hover {
   background-color: #ffffff;
-  color: #7d10e3;
+  color: #3e07cb;
 }
 
 .main-border-button a {
@@ -869,7 +869,7 @@ Most Popular Style
 }
 
 .most-popular .item span {
-  color: #6ad400;
+  color: #03a5f0;
   display: block;
   margin-top: 7px;
   font-weight: 400;
@@ -958,7 +958,7 @@ Gaming Library Style
 }
 
 .gaming-library .item ul li span {
-  color: #6ad400;
+  color: #03a5f0;
   font-size: 14px;
 }
 
