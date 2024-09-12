@@ -133,7 +133,7 @@ body {
 /*background_box_colour*/
 body .page-content {
   margin-top: 110px;
-  /* background: linear-gradient(120deg, #000000, #ffffff, #000000, #ffffff, #000000, #000000);
+  background: linear-gradient(120deg, #000000, #b96dffdc, #000000, #b96dffdc, #000000, #b96dffdc);
   animation: gradientAnimation 10s ease infinite; */
   background: linear-gradient(120deg, #000000, #000000, #000000, #000000, #000000, #000000);
   background-size: 300% 300%;
@@ -181,7 +181,7 @@ p {
 .main-button a {
   font-size: 16px;
   color: #ffffff;
-  background-color: #6ad400;
+  background-color: #7d10e3;
   padding: 12px 30px;
   display: inline-block;
   border-radius: 25px;
@@ -195,7 +195,7 @@ p {
 
 .main-button a:hover {
   background-color: #ffffff;
-  color: #6ad400;
+  color: #7d10e3;
 }
 
 .main-border-button a {
