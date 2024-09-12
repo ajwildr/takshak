@@ -133,8 +133,9 @@ body {
 /*background_box_colour*/
 body .page-content {
   margin-top: 110px;
-  background: linear-gradient(120deg, #000000, #b96dffdc, #000000, #b96dffdc, #000000, #b96dffdc);
-  animation: gradientAnimation 10s ease infinite;
+  /* background: linear-gradient(120deg, #000000, #ffffff, #000000, #ffffff, #000000, #000000);
+  animation: gradientAnimation 10s ease infinite; */
+  background: linear-gradient(120deg, #000000, #000000, #000000, #000000, #000000, #000000);
   background-size: 300% 300%;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15)!important;
   transition: all 0.5s ease;
