@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wait and See</title>
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #1c4671, #000000);
+      background-size: 600% 600%;
+      animation: gradientAnimation 8s ease infinite; 
+      font-family: 'Arial', sans-serif;
+      color: #fff;
+    }
+
+    @keyframes gradientAnimation {
+      0% {
+        background-position: 0% 0%;
+      }
+      50% {
+        background-position: 100% 100%;
+      }
+      100% {
+        background-position: 0% 0%;
+      }
+    }
+
+   
+    .container {
+      text-align: center;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .message {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: fadeIn 2s forwards infinite;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .sub-message {
+      font-size: 1.2em;
+      color: #ddd;
+    }
+
+    /* Responsive styling */
+    @media (max-width: 768px) {
+      .message {
+        font-size: 2em;
+      }
+
+      .sub-message {
+        font-size: 1em;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .container {
+        padding: 20px;
+      }
+
+      .message {
+        font-size: 1.5em;
+      }
+
+      .sub-message {
+        font-size: 0.9em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="message">Wait and See...</div>
+    <div class="sub-message">We're preparing something amazing for you!</div>
+  </div>
+</body>
+</html>
