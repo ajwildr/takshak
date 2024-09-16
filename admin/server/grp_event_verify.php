@@ -12,7 +12,7 @@ if($conn->query($update_status))
     
             }
         else{
-            header("Location:/takshak/admin/coordinator.php");
+            echo "<script>window.location.href = '/admin/coordinator.php';</script>";
         }
     }
 else{
