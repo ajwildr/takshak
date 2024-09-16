@@ -11,7 +11,7 @@ if($user_details['event_name']=='admin')
     $_SESSION['user']="super_user";
     //Location:/takshak/admin/admin.php
     
-    $redirect_url = $_SERVER['DOCUMENT_ROOT'] . '/admin/admin.php';
+    $redirect_url = 'takshak-mca.in'. '/admin/admin.php';
     header("Location:$redirect_url");
      echo($redirect_url);
      echo("sucess to login");
