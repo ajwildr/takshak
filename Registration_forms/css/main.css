@@ -236,9 +236,10 @@ button {
 body {
   font-family: "Open Sans", "Arial", "Helvetica Neue", sans-serif;
   font-weight: 400;
-  background-image: url(../images/takshak.jpg);
-  background-size:cover; /* Ensures the image covers the entire banner */
-  background-position: center; /* Centers the image */
+  /*background-image: url(../images/takshak.jpg);*/
+  background-color: #000000;
+  /*background-size:cover; /* Ensures the image covers the entire banner */
+  /*background-position: center; /* Centers the image */
   font-size: 14px;
 }
 
