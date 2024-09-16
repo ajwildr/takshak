@@ -10,7 +10,7 @@ if($user_details['event_name']=='admin')
 {   session_start();
     $_SESSION['user']="super_user";
     // header("Location:/takshak/admin/admin.php");
-    echo "<script>window.location.href='/takshak/admin/admin.php';</script>";
+    echo "<script>window.location.href='/admin/admin.php';</script>";
 }
 else if($user_details['event_name']==null){
     header("Location:invalid_credentials.php");
