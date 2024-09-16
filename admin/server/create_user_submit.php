@@ -9,11 +9,13 @@ if(isset($_POST['btn1']))
             $insert_query="INSERT into users(event_id,event_name,user_name,pass) values('$event_id','$event_name','$user_name','$pass')";
             if($conn->query($insert_query))
                 {
-                    header("Location:/takshak/admin/admin.php");
+                    //header("Location:/takshak/admin/admin.php");
+                     echo "<script>window.location.href = '/admin/admin.php';</script>";
                 }
             else
                 {
-                    header("Location:user_creation_failed.php");
+                    //header("Location:user_creation_failed.php");
+                    echo "<script>window.location.href = 'user_creation_failed.php';</script>";
                 }
 
 
