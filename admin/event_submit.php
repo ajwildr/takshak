@@ -24,6 +24,10 @@ if ($conn->query($insert_query)) {
     $set_limit="INSERT into event_limit(event_id,event_name,reg_limit) values('$id','$event_name','$participants')";
     $conn->query($set_limit);
     echo("event reg sucess");
+    echo "<script>
+        setTimeout(function() {
+            window.location.href = 'server/event_reg_sucess.php';
+        }, 1500);
     //header("Location:server/event_reg_sucess.php");
 } else {
     echo("\n\nFailed to insert data: " . $conn->error); // Display the database error
