@@ -38,7 +38,8 @@ try {
         // header("location:Failed.php");
         // echo($conn->error);
     }
-} catch (PDOException $e) {
-    echo "Query failed: " . $e->getMessage();
+}  catch (Throwable $e) {
+    echo "<script>window.location.href = 'reg_failed.php';</script>";
+    //echo "Query failed: " . $e->getMessage();
 }
 ?>
