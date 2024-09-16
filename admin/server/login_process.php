@@ -1,33 +1,36 @@
 <?php
 include('connect.php');
-$uname=$_POST['username'];
-$pass=$_POST['password'];
-$sel_query="SELECT pass,event_name from users where user_name='$uname'";
-$execute=$conn->query($sel_query);
-$user_details=$execute->fetch_assoc();
-//var_dump($user_details);
-if($user_details['event_name']=='admin')
-{   session_start();
-    $_SESSION['user']="super_user";
-    //Location:/takshak/admin/admin.php
-    
-    $redirect_url = 'https://takshak-mca.in'. '/admin/admin.php';
-    header("Location:https://takshak-mca.in/admin/admin.php");
-    // echo($redirect_url);
-    // echo("sucess to login");
-    // echo("failed to redirect version3 exit");
-}
-else if($user_details['event_name']==null){
-    header("Location:invalid_credentials.php");
-}
-else{
-    session_start();
-    $_SESSION['user']="coordinator";
-    $_SESSION['event_name']=$user_details['event_name'];
-    header("Location:/takshak/admin/coordinator.php");
-   // echo($user_details['event_name']);
-}
+session_start(); // Start session before any output is sent
 
+$uname = $_POST['username'];
+$pass = $_POST['password'];
 
+// Prepare and execute the SQL query safely using prepared statements to prevent SQL injection
+$sel_query = $conn->prepare("SELECT pass, event_name FROM users WHERE user_name = ?");
+$sel_query->bind_param('s', $uname); // 's' indicates a string type
+$sel_query->execute();
+$result = $sel_query->get_result();
+$user_details = $result->fetch_assoc();
 
+if ($user_details) {
+    // Verify the password (assuming it's hashed in the database)
+    if (password_verify($pass, $user_details['pass'])) {
+        if ($user_details['event_name'] == 'admin') {
+            $_SESSION['user'] = "super_user";
+            // Use relative paths for redirection
+            header("Location: /admin/admin.php");
+        } else {
+            $_SESSION['user'] = "coordinator";
+            $_SESSION['event_name'] = $user_details['event_name'];
+            header("Location: /admin/coordinator.php");
+        }
+    } else {
+        // Invalid password
+        header("Location: invalid_credentials.php");
+    }
+} else {
+    // Invalid username
+    header("Location: invalid_credentials.php");
+}
+exit; // Ensure no further processing occurs after redirection
 ?>
