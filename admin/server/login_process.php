@@ -32,7 +32,7 @@ if ($user_details['event_name'] == 'admin') {
     // Use JavaScript to redirect after setting the session
     echo "<script>
         setTimeout(function() {
-            window.location.href = '/takshak/admin/coordinator.php';
+            window.location.href = '/admin/coordinator.php';
         }, 3000);
     </script>";
     echo($user_details['event_name']); // Debugging: Output the event name
