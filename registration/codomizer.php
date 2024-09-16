@@ -95,7 +95,7 @@ $_SESSION['event_id']=4;
                             <div class="name">To Pay: <br><h2>Rs 150/-</h2></div>
                             <div class="value">
                                 <div class="input-group">
-                                    <img src="images/stream-06.jpg"><br>
+                                    <img src="img\Codomizer_qrcode.png"><br>
                                     <label style="margin-left: 10px; font-size: 16px; color: white; display: block; text-align: justify;">please save your transaction id after payment to submit below !</label>
                                 </div>
                             </div>
