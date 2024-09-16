@@ -38,11 +38,19 @@ echo($insert_query);
     // Execute the query
     if ($conn->query($insert_query) === TRUE) {
         $update_limit="UPDATE event_limit set current_reg=current_reg+1 where event_id='$event_id'";
-        $conn->query($update_limit);
-        header("Location:reg_sucess.php");
-        //header("location:reg_success.php");
+        if($conn->query($update_limit))
+             {
+                  //header("Location:reg_sucess.php");
+                 echo "<script>window.location.href = 'reg_sucess.php';</script>";
+              }
+        else{    echo "<script>window.location.href = 'reg_sucess.php';</script>";
+              //header("location:reg_success.php");
+             }
+       
+        
     } else {
-        header("location:reg_failed.php");
+       // header("location:reg_failed.php");
+        echo "<script>window.location.href = 'reg_failed.php';</script>";
         //echo($conn->error);
     }
 } catch (PDOException $e) {
