@@ -7,12 +7,13 @@ $id=$_GET['id'];
 $update_status="UPDATE individual_events set status='pending' where reg_id ='$id'";
 if($conn->query($update_status))
     {
-        if($_SESSION['user']=="super_user")
+         if($_SESSION['user']=="super_user")
             {
-              header("Location:/takshak/admin/admin.php");
+               echo "<script>window.location.href = '/admin/admin.php';</script>";
+    
             }
         else{
-            header("Location:/takshak/admin/coordinator.php");
+            echo "<script>window.location.href = '/admin/coordinator.php';</script>";
         }
     }
 else{
