@@ -13,7 +13,9 @@ $event_id=$event_detail['event_id'];
 $update_status="UPDATE individual_events set status='rejected' where reg_id ='$id'";
 if($conn->query($update_status))
     {
-         if($_SESSION['user']=="super_user")
+        $update_limit="UPDATE event_limit set current_reg=current_reg-1 where event_id='$event_id'";
+        $conn->query($update_limit);
+        if($_SESSION['user']=="super_user")
             {
                echo "<script>window.location.href = '/admin/admin.php';</script>";
     
