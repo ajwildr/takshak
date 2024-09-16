@@ -18,7 +18,8 @@
             background-color: #333;
             color: #fff;
             padding: 15px;
-            text-align: left;
+            text-align: center;
+            position: relative;
         }
         header button {
             background-color: #f44336;
@@ -26,9 +27,16 @@
             padding: 10px 20px;
             border: none;
             cursor: pointer;
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
         }
         header button:hover {
             background-color: #d32f2f;
+        }
+        h1 {
+            margin: 20px 0;
         }
         table {
             width: 80%;
@@ -51,9 +59,8 @@
 
 <header>
     <button onclick="history.back()">Back</button>
+    <h1>Event Dashboard</h1>
 </header>
-
-<h1>Event Dashboard</h1>
 
 <table>
     <thead>
