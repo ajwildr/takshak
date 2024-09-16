@@ -1,6 +1,7 @@
 <?php
 session_start();
 $_SESSION['event_id']=1;
+$id=1;
 include('server/connect.php');
 $check="SELECT * from event_limit where event_id='$id'";
 $data=$conn->query($check);
