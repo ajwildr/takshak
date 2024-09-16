@@ -55,7 +55,9 @@
 </html>
 <?php
 //header("Refresh: 3; url=/index.html");
-setTimeout(function() {
+ echo "<script>
+        setTimeout(function() {
             window.location.href = '/index.html';
         }, 3000);
+    </script>";
 ?>
