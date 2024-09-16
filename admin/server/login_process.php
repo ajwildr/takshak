@@ -13,6 +13,7 @@ if($user_details['event_name']=='admin')
     echo("sucess to login");
     $redirect_url = $_SERVER['DOCUMENT_ROOT'] . '/admin/admin.php';
     header("Location:$redirect_url");
+     echo($redirect_url);
      echo("failed to redirect version2");
 }
 else if($user_details['event_name']==null){
