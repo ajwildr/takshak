@@ -72,6 +72,7 @@ if(isset($_SESSION['user']) && $_SESSION['user'] === "super_user")
 <?php
     }
     else{
-        header("Location:server/restricted.php");
+        //header("Location:server/restricted.php");
+        echo "<script>window.location.href = 'server/restricted.php';</script>";
     }
 ?>
