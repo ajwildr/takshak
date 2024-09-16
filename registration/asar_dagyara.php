@@ -128,10 +128,10 @@ $_SESSION['event_id']=1;
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="name">To Pay: <br><h2>Rs 150/-</h2></div>
+                            <div class="name">To Pay: <br><h2>Rs 400/-</h2></div>
                             <div class="value">
                                 <div class="input-group">
-                                    <img src="img\Asar Dagyara_qrcode.png"><br>
+                                    <img src="images\Asar Dagyara_qrcode.png"><br>
                                     <label style="margin-left: 10px; font-size: 16px; color: white; display: block; text-align: justify;">please save your transaction id after payment to submit below !</label>
                                 </div>
                             </div>
