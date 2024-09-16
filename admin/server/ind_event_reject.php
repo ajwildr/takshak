@@ -4,6 +4,12 @@ if(isset($_SESSION['user']))
 {
 include('connect.php');
 $id=$_GET['id'];
+//query to get event_id
+$get_event_id="SELECT event_id from individual_events where reg_id='$id'";
+$data=$conn->query($get_event_id);
+$event_detail=$data->fetch_assoc();
+$event_id=$event_detail['event_id'];
+//end of query to get event_id
 $update_status="UPDATE individual_events set status='rejected' where reg_id ='$id'";
 if($conn->query($update_status))
     {
