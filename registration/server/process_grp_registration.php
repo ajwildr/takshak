@@ -3,7 +3,7 @@ include('connect.php');
 //$event_id=$_SESSION['event_id'];
 session_start();
 $event_id=$_SESSION['event_id'];
-$select_strength="SELECT grp_strenght,event_name from event_details where event_id=$event_id";
+$select_strength="SELECT grp_strenght,event_name from event_details where event_id='$event_id'";
 echo($select_strength);
 $sel=$conn->query($select_strength);
 $event_details=$sel->fetch_assoc();
@@ -41,15 +41,19 @@ echo($insert_query);
         if($conn->query($update_limit))
              {
                   //header("Location:reg_sucess.php");
+                 mysqli_close($conn);
                  echo "<script>window.location.href = 'reg_sucess.php';</script>";
               }
-        else{    echo "<script>window.location.href = 'reg_sucess.php';</script>";
+        else{   
+                mysqli_close($conn);
+               echo "<script>window.location.href = 'reg_sucess.php';</script>";
               //header("location:reg_success.php");
              }
        
         
     } else {
        // header("location:reg_failed.php");
+        mysqli_close($conn);
         echo "<script>window.location.href = 'reg_failed.php';</script>";
         //echo($conn->error);
     }
