@@ -62,7 +62,8 @@ values('$clg','$dpt_name','$t_name','$t_cap','$mail','$phn','$alt_phn','$t_membe
         echo "<script>window.location.href = 'reg_failed.php';</script>";
         
     }
-} catch (PDOException $e) {
-    echo "Query failed: " . $e->getMessage();
+} catch (Exception $e) {
+    echo "<script>window.location.href = 'reg_failed.php';</script>";
+    //echo "Query failed: " . $e->getMessage();
 }
 ?>
