@@ -26,7 +26,7 @@ if ($user_details['event_name'] == 'admin') {
     $_SESSION['user'] = "coordinator";
     $_SESSION['event_name'] = $user_details['event_name'];
     // Use JavaScript to redirect after setting the session
-    echo "<script>window.location.href='/takshak/admin/coordinator.php';</script>";
+    echo "<script>window.location.href='/admin/coordinator.php';</script>";
     echo($user_details['event_name']); // Debugging: Output the event name
 }
 exit; // Make sure no further code is executed after the redirect
