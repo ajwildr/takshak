@@ -14,6 +14,7 @@ var_dump($event_details);
 echo("\n");
 $limit=$event_details['grp_strenght'];
 $event_name=$event_details['event_name'];
+echo("\nevent_id ".$event_id.$event_name.$limit."\n");
 echo($limit);
 $clg=$_POST['collegename'];
 $dpt_name=$_POST['department'];
