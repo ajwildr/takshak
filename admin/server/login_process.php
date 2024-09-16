@@ -11,7 +11,7 @@ $execute = $conn->query($sel_query);
 $user_details = $execute->fetch_assoc();
 
 // Debugging: Show user details
-var_dump($user_details);
+
 
 if ($user_details['event_name'] == 'admin') {
     // Set session variable for admin
