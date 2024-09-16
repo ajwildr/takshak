@@ -145,7 +145,7 @@ if($current_reg<$limit)
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="name">To Pay: <br><h2>Rs 500/-</h2></div>
+                            <div class="name">To Pay: <br><h2>Rs 300/-</h2></div>
                             <div class="value">
                                 <div class="input-group">
                                     <img src="images\VALORANT VORTEX_qrcode.jpg" width=300px height=400px><br>
