@@ -1,6 +1,10 @@
 <?php
 session_start();
 $event_name=$_SESSION['event_name'];
+include('connect.php');
+$sel="SELECT * from event_limit where event_name='$event_name'";
+$data=$conn->query($sel);
+$event_limit=$data->fetch_assoc();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -79,7 +83,7 @@ $event_name=$_SESSION['event_name'];
         <h1><?php echo($event_name) ?> Dashboard</h1>
         <p>Manage and Monitor Event Participation</p>
     </header>
-
+   <form method="POST">
     <div class="container dashboard-container">
         <!-- Alert Message -->
         <div class="alert alert-custom alert-dismissible fade show" role="alert">
@@ -90,17 +94,18 @@ $event_name=$_SESSION['event_name'];
         </div>
 
         <!-- Current Number of Participants -->
+         
         <div class="card">
             <h5 class="card-title">Current Number of Participants</h5>
             <div class="row mb-3">
                 <div class="col-md-6">
-                    <button class="btn btn-danger btn-sm btn-block">-</button>
+                    <button class="btn btn-danger btn-sm btn-block" name="sub_current">-</button>
                 </div>
                 <div class="col-md-6">
-                    <button class="btn btn-success btn-sm btn-block">+</button>
+                    <button class="btn btn-success btn-sm btn-block" name="add_current">+</button>
                 </div>
             </div>
-            <h3 id="currentParticipants" class="current-value">0</h3>
+            <h3 id="currentParticipants" class="current-value"><?php echo($event_limit['current_reg'])?></h3>
         </div>
 
         <!-- Participant Limit -->
@@ -108,15 +113,16 @@ $event_name=$_SESSION['event_name'];
             <h5 class="card-title">Participant Limit</h5>
             <div class="row mb-3">
                 <div class="col-md-6">
-                    <button class="btn btn-danger btn-sm btn-block">-</button>
+                    <button class="btn btn-danger btn-sm btn-block" name="sub_limit">-</button>
                 </div>
                 <div class="col-md-6">
-                    <button class="btn btn-success btn-sm btn-block">+</button>
+                    <button class="btn btn-success btn-sm btn-block" name="add_limit">+</button>
                 </div>
             </div>
-            <h3 id="participantLimit" class="limit-value">100</h3>
+            <h3 id="participantLimit" class="limit-value"><?php echo($event_limit['reg_limit'])?></h3>
         </div>
     </div>
+    </form>
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -124,3 +130,28 @@ $event_name=$_SESSION['event_name'];
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+<?php
+if(isset($_POST['sub_current'])){
+    $sub_current="UPDATE event_limit set current_reg=current_reg-1";
+    $conn->query($sub_current);
+    
+}
+else if(isset($_POST['add_current']))
+    {
+        $add_current="UPDATE event_limit set current_reg=current_reg+1";
+        $conn->query($add_current);
+        
+    }
+else if(isset($_POST['sub_limit']))
+    {
+        $sub_limit="UPDATE event_limit set reg_limit=reg_limit-1";
+        $conn->query($sub_limit);
+       
+    }
+else if(isset($_POST['add_limit']))
+    {
+        $add_limit="UPDATE event_limit set reg_limit=reg_limit+1";
+        $conn->query($add_limit);
+       
+    }
+?>
