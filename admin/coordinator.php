@@ -126,7 +126,7 @@ $pre_ind_events=$conn->query($sel_ind_events);
 
     <!-- Header with Buttons -->
     <header>
-        <button onclick="location.href='#'">DUMMY</button>
+        <button onclick="location.href='server/verified_users.php'">Verified Entries</button>
         <button onclick="location.href='server/parti_dashboard.php'">Participants Dashboard</button>
         <button onclick="location.href='server/delete_participant.php'">Delete Entire</button>
     </header>
