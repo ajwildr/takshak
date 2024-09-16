@@ -54,5 +54,5 @@
 </body>
 </html>
 <?php
-header("Refresh: 3; url=/takshak/index.html");
+header("Refresh: 3; url=/index.html");
 ?>
