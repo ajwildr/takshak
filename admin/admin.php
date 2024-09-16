@@ -131,6 +131,7 @@ $pre_ind_events=$conn->query($sel_ind_events);
         <button onclick="location.href='event_reg.php'">Event Creation</button>
         <button onclick="location.href='server/event_list.php'">Event List</button>
         <button onclick="location.href='server/users_list.php'">Users List</button>
+        <button onclick="location.href='/index.html'">Users List</button>
     </header>
 
     <!-- Group Events Section -->
