@@ -9,7 +9,8 @@ var_dump($user_details);
 if($user_details['event_name']=='admin')
 {   session_start();
     $_SESSION['user']="super_user";
-    header("Location:/takshak/admin/admin.php");
+    //Location:/takshak/admin/admin.php
+    header("Location:/admin/admin.php");
 }
 else if($user_details['event_name']==null){
     header("Location:invalid_credentials.php");
