@@ -21,7 +21,7 @@ if ($user_details['event_name'] == 'admin') {
     echo "<script>
         setTimeout(function() {
             window.location.href = '/admin/admin.php';
-        }, 3000);
+        }, 1500);
     </script>";
 } elseif ($user_details['event_name'] == null) {
     // Redirect to invalid credentials page if no event_name found
@@ -34,7 +34,7 @@ if ($user_details['event_name'] == 'admin') {
     echo "<script>
         setTimeout(function() {
             window.location.href = '/admin/coordinator.php';
-        }, 3000);
+        }, 1500);
     </script>";
     echo($user_details['event_name']); // Debugging: Output the event name
 }
