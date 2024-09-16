@@ -204,7 +204,8 @@ if(isset($_SESSION['user']) && $_SESSION['user'] === "coordinator") {
 
 <?php
 } else {
-    header("Location: restricted.php");
+    //header("Location: restricted.php");
+    echo "<script>window.location.href='restricted.php';</script>";
     exit();
 }
 ?>
