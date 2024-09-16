@@ -198,6 +198,7 @@ if($current_reg<$limit)
  <?php
 }
 else{
-    header("Location:server/limit_reached.php");
+    //header("Location:server/limit_reached.php");
+    echo "<script>window.location.href='server/limit_reached.php';</script>";
 }
 ?>
