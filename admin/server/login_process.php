@@ -11,8 +11,9 @@ if($user_details['event_name']=='admin')
     $_SESSION['user']="super_user";
     //Location:/takshak/admin/admin.php
     echo("sucess to login");
-    header("Location:/admin/admin.php");
-     echo("failed to redirect");
+    $redirect_url = $_SERVER['DOCUMENT_ROOT'] . '/admin/admin.php';
+    header("Location:$redirect_url");
+     echo("failed to redirect version2");
 }
 else if($user_details['event_name']==null){
     header("Location:invalid_credentials.php");
