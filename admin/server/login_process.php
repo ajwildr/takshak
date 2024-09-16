@@ -5,7 +5,7 @@ $pass=$_POST['password'];
 $sel_query="SELECT pass,event_name from users where user_name='$uname'";
 $execute=$conn->query($sel_query);
 $user_details=$execute->fetch_assoc();
-var_dump($user_details);
+//var_dump($user_details);
 if($user_details['event_name']=='admin')
 {   session_start();
     $_SESSION['user']="super_user";
