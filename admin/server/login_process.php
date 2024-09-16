@@ -13,9 +13,9 @@ if($user_details['event_name']=='admin')
     
     $redirect_url = 'https://takshak-mca.in'. '/admin/admin.php';
     header("Location: https://takshak-mca.in/admin/admin.php");
-     echo($redirect_url);
-     echo("sucess to login");
-     echo("failed to redirect version3 exit");
+    // echo($redirect_url);
+    // echo("sucess to login");
+    // echo("failed to redirect version3 exit");
 }
 else if($user_details['event_name']==null){
     header("Location:invalid_credentials.php");
@@ -25,7 +25,7 @@ else{
     $_SESSION['user']="coordinator";
     $_SESSION['event_name']=$user_details['event_name'];
     header("Location:/takshak/admin/coordinator.php");
-    echo($user_details['event_name']);
+   // echo($user_details['event_name']);
 }
 
 
