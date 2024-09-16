@@ -1,6 +1,15 @@
 <?php
 session_start();
 $_SESSION['event_id']=5;
+$id=5;
+include('server/connect.php');
+$check="SELECT * from event_limit where event_id='$id'";
+$data=$conn->query($check);
+$limit_check=$data->fetch_assoc();
+$current_reg=$limit_check['current_reg'];
+$limit=$limit_check['reg_limit'];
+if($current_reg<$limit)
+{
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -162,3 +171,10 @@ $_SESSION['event_id']=5;
 
 </html>
 <!-- end document-->
+<?php
+}
+else{
+    //header("Location:server/limit_reached.php");
+    echo "<script>window.location.href='server/limit_reached.php';</script>";
+}
+?>
