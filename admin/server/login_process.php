@@ -10,7 +10,9 @@ if($user_details['event_name']=='admin')
 {   session_start();
     $_SESSION['user']="super_user";
     //Location:/takshak/admin/admin.php
+    echo("sucess to login");
     header("Location:/admin/admin.php");
+     echo("failed to redirect");
 }
 else if($user_details['event_name']==null){
     header("Location:invalid_credentials.php");
