@@ -12,7 +12,7 @@ if($user_details['event_name']=='admin')
     //Location:/takshak/admin/admin.php
     
     $redirect_url = 'https://takshak-mca.in'. '/admin/admin.php';
-    header("Location: https://takshak-mca.in/takshak/admin/admin.php");
+    header("Location:https://takshak-mca.in/admin/admin.php");
     // echo($redirect_url);
     // echo("sucess to login");
     // echo("failed to redirect version3 exit");
