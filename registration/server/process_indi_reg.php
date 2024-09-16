@@ -19,10 +19,18 @@ $insert_query="INSERT into individual_events(clg_name,dept_name,mail,phone,trans
 try {
     // Execute the query
     if ($conn->query($insert_query) === TRUE) {
-        mysqli_close($conn);
-        echo "<script>window.location.href = 'reg_sucess.php';</script>";
-        //header("Location:reg_sucess.php");
-        //header("location:reg_success.php");
+        $update_limit="UPDATE event_limit set current_reg=current_reg+1 where event_id='$event_id'";
+        if($conn->query($update_limit))
+             {
+                  //header("Location:reg_sucess.php");
+                 mysqli_close($conn);
+                 echo "<script>window.location.href = 'reg_sucess.php';</script>";
+              }
+        else{   
+                mysqli_close($conn);
+               echo "<script>window.location.href = 'reg_sucess.php';</script>";
+              //header("location:reg_success.php");
+             }
     } else {
         mysqli_close($conn);
         echo "<script>window.location.href = 'reg_failed.php';</script>";
