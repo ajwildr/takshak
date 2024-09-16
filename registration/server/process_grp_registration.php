@@ -6,17 +6,17 @@ include('connect.php');
 
 
 $select_strength="SELECT grp_strenght,event_name from event_details where event_id='$event_id'";
-echo($select_strength);
+//echo($select_strength);
 $sel=$conn->query($select_strength);
 $event_details=$sel->fetch_assoc();
-echo("\nlimit\n");
-var_dump($event_details);
-echo("\n");
+//echo("\nlimit\n");
+//var_dump($event_details);
+//echo("\n");
 $limit=$event_details['grp_strenght'];
 $event_name=$event_details['event_name'];
-echo "\nevent_id: " . $event_id . " | Event Name: " . $event_name . " | Limit: " . $limit . "\n";
+//echo "\nevent_id: " . $event_id . " | Event Name: " . $event_name . " | Limit: " . $limit . "\n";
 
-echo($limit);
+//echo($limit);
 $clg=$_POST['collegename'];
 $dpt_name=$_POST['department'];
 $t_name=$_POST['teamname'];
@@ -37,7 +37,7 @@ for($i=2;$i<=$limit;$i++)
 $insert_query="INSERT into group_event(clg_name,dept_name,team_name,captain_name,
 mail,phone,alt_phone,team_members,event_name,event_id,transaction_id) 
 values('$clg','$dpt_name','$t_name','$t_cap','$mail','$phn','$alt_phn','$t_members','$event_name','$event_id','$trans_id')";
-echo($insert_query);
+//echo($insert_query);
  try {
     // Execute the query
     if ($conn->query($insert_query) === TRUE) {
