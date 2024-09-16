@@ -12,16 +12,15 @@ $event_id=$event_detail['event_id'];
 //end of query to get event_id
 $update_status="UPDATE group_event set status='rejected' where reg_id ='$id'";
 if($conn->query($update_status))
-    {
+    {   $update_limit="UPDATE event_limit set current_reg=current_reg-1 where event_id='$event_id'";
+        $conn->query($update_limit);
         if($_SESSION['user']=="super_user")
-            { $update_limit="UPDATE event_limit set current_reg=current_reg-1 where event_id='$event_id'";
-                $conn->query($update_limit);
-              header("Location:/takshak/admin/admin.php");
+            {
+               echo "<script>window.location.href = '/admin/admin.php';</script>";
+    
             }
         else{
-            $update_limit="UPDATE event_limit set current_reg=current_reg-1 where event_id='$event_id'";
-            $conn->query($update_limit);
-            header("Location:/takshak/admin/coordinator.php");
+            echo "<script>window.location.href = '/admin/coordinator.php';</script>";
         }
     }
 else{
