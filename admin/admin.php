@@ -1,7 +1,6 @@
 <?php
 session_start();
-$user=$_GET['id'];
-if((isset($_SESSION['user']) && $_SESSION['user'] === "super_user") or ($user="super_user))
+if((isset($_SESSION['user']) && $_SESSION['user'] === "super_user") )
     {
 $_SESSION['user']="super_user";
 include('server/connect.php');
