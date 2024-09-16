@@ -1,9 +1,10 @@
 <?php
 session_start();
+$event_id=$_SESSION['event_id'];
 include('connect.php');
 //$event_id=$_SESSION['event_id'];
 
-$event_id=$_SESSION['event_id'];
+
 $select_strength="SELECT grp_strenght,event_name from event_details where event_id='$event_id'";
 echo($select_strength);
 $sel=$conn->query($select_strength);
