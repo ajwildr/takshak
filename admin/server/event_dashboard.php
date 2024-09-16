@@ -1,3 +1,9 @@
+<?php
+include('connect.php');
+$event_limit_details="SELECT * from event_limit";
+$data=$conn->query($event_limit_details);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -72,18 +78,19 @@
         </tr>
     </thead>
     <tbody>
+        <?php while($event_details=$data->fetch_assoc())
+    {
+
+?>
         <tr>
-            <td>1</td>
-            <td>Hackathon 2024</td>
-            <td>50</td>
-            <td>100</td>
+            <td><?php echo($event_details['event_id']) ?></td>
+            <td><?php echo($event_details['event_name']) ?></td>
+            <td><?php echo($event_details['current_reg']) ?></td>
+            <td><?php echo($event_details['reg_limit']) ?></td>
         </tr>
-        <tr>
-            <td>2</td>
-            <td>AI Workshop</td>
-            <td>75</td>
-            <td>80</td>
-        </tr>
+       <?php
+          }
+?>
         <!-- Add more rows as needed -->
     </tbody>
 </table>
