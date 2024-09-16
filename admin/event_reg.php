@@ -17,7 +17,7 @@ if(isset($_SESSION['user']) && $_SESSION['user'] === "super_user")
         <div class="form-header">
             <h2>Event Registration Form</h2>
         </div>
-        <form action="event_submit.php" method="post">
+        <form action="/admin/event_submit.php" method="post">
             <div class="form-group">
                 <label for="event-id">Event ID:</label>
                 <input type="text" id="event-id" name="event-id" required>
