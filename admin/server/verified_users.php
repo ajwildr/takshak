@@ -134,7 +134,7 @@ if(isset($_SESSION['user']) && $_SESSION['user'] === "coordinator") {
 <body>
 
     <h1>Delete Participant</h1>
-    <button class="home-btn" onclick="window.location.href='/takshak/admin/coordinator.php';">Go to Home</button>
+    <button class="home-btn" onclick="window.location.href='/admin/coordinator.php';">Go to Home</button>
 
     <!-- Group Events Table -->
     <h2>Group Events</h2>
