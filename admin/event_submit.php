@@ -12,12 +12,12 @@ $participants = $_POST['participants'];
 $img = $_POST['image-url'];
 $grp_strenght = $_POST['grp_strenght'];
 
-echo($id . $event_name . $cod_name . $cod_phn . $subcod_name . $subcod_phn . $participants . $img);
+//echo($id . $event_name . $cod_name . $cod_phn . $subcod_name . $subcod_phn . $participants . $img);
 
 $insert_query = "INSERT INTO event_details(event_id, event_name, cod_name, cod_phn, subcod_name, subcod_phn, participants, grp_strenght, img) 
 VALUES ('$id', '$event_name', '$cod_name', '$cod_phn', '$subcod_name', '$subcod_phn', $participants, '$grp_strenght', '$img')";
 
-echo($insert_query);
+//echo($insert_query);
 
 // Execute query and check for errors
 if ($conn->query($insert_query)) {
@@ -27,7 +27,7 @@ if ($conn->query($insert_query)) {
     echo "<script>
         setTimeout(function() {
             window.location.href = 'server/event_reg_sucess.php';
-        }, 1500);
+        }, 600);
     //header("Location:server/event_reg_sucess.php");
 } else {
     echo("\n\nFailed to insert data: " . $conn->error); // Display the database error
