@@ -26,7 +26,7 @@ if ($conn->query($insert_query)) {
     echo("event reg sucess");
     echo "<script>
         setTimeout(function() {
-            window.location.href = 'server/event_reg_sucess.php';
+            window.location.href = '/admin/server/event_reg_sucess.php';
         }, 600);
     //header("Location:server/event_reg_sucess.php");
 } else {
