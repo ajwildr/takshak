@@ -62,7 +62,7 @@ values('$clg','$dpt_name','$t_name','$t_cap','$mail','$phn','$alt_phn','$t_membe
         echo "<script>window.location.href = 'reg_failed.php';</script>";
         
     }
-} catch (Exception $e) {
+} catch (Throwable $e) {
     echo "<script>window.location.href = 'reg_failed.php';</script>";
     //echo "Query failed: " . $e->getMessage();
 }
