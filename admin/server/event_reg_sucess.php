@@ -49,7 +49,7 @@
 
     <script>
         setTimeout(function() {
-            window.location.href = '/takshak/admin/event_reg.php'; // Change 'next-page.php' to the desired redirect page
+            window.location.href = '/admin/event_reg.php'; // Change 'next-page.php' to the desired redirect page
         }, 3000); // 1.5 second delay before redirect
     </script>
 </body>
