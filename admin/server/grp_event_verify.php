@@ -8,11 +8,8 @@ $update_status="UPDATE group_event set status='verified' where reg_id ='$id'";
 if($conn->query($update_status))
     {   if($_SESSION['user']=="super_user")
             {
-               echo "<script>
-        setTimeout(function() {
-            window.location.href = '/admin/admin.php';
-        }, 1500);
-    </script>";
+               echo "<script>window.location.href = '/admin/admin.php';</script>";
+    
             }
         else{
             header("Location:/takshak/admin/coordinator.php");
