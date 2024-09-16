@@ -17,7 +17,6 @@ else if($user_details['event_name']==null){
     header("Location:invalid_credentials.php");
 }
 else{
-    session_start();
     $_SESSION['user']="coordinator";
     $_SESSION['event_name']=$user_details['event_name'];
     header("Location:/takshak/admin/coordinator.php");
