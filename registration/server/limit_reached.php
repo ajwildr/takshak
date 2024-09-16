@@ -37,3 +37,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+<?php
+echo "<script>
+        setTimeout(function() {
+            window.location.href = '/index.html';
+        }, 3000);
+    </script>";
+?>
