@@ -16,7 +16,7 @@ if($user_details['event_name']=='admin')
     exit();
      echo($redirect_url);
      echo("sucess to login");
-     echo("failed to redirect version2");
+     echo("failed to redirect version3 exit");
 }
 else if($user_details['event_name']==null){
     header("Location:invalid_credentials.php");
