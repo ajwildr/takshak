@@ -1,10 +1,13 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html class="no-js" lang="zxx">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Access Denied</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <style>
         body {
             margin: 0;
@@ -70,13 +73,14 @@
         }
     </style>
 </head>
+
 <body>
 
 <div class="container">
     <div class="warning-icon">🚫</div>
     <h1>Oops!</h1>
     <p>Don't be oversmart, you don't have access to this page.</p>
+    <a href="../../index.html"><h4>Go back Kido !</h4></a>
 </div>
-
 </body>
 </html>
