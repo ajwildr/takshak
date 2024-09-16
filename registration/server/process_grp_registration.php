@@ -56,9 +56,10 @@ echo($insert_query);
         
     } else {
        // header("location:reg_failed.php");
+        echo($conn->error);
         mysqli_close($conn);
         echo "<script>window.location.href = 'reg_failed.php';</script>";
-        //echo($conn->error);
+        
     }
 } catch (PDOException $e) {
     echo "Query failed: " . $e->getMessage();
