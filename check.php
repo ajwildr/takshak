@@ -140,8 +140,8 @@
                             <h1>Registration Status</h1>
 
                             <div class="container">
-                                <form  method="post">
-                                    <input type="email" id="email" name="email" placeholder="Enter your registered email ID" required>
+                                <form method="POST">
+                                    <input type="email" id="email" name="mail" placeholder="Enter your registered email ID" required>
                                     <input  type="button" value="Check Status" name="check">
                                 </form>
 
@@ -149,7 +149,7 @@
                                 if (isset($_POST['check'])) {
                                     echo("hai");
                                     include('/registration/server/connect.php');
-                                    $mail = $_POST['email'];
+                                    $mail = $_POST['mail'];
 
                                     $sel_grp = "SELECT * FROM group_event WHERE mail='$mail'";
                                     $grp_data = $conn->query($sel_grp);
