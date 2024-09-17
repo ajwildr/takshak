@@ -210,7 +210,7 @@
                                 <h1>Registration Status</h1>
         
                                 <div class="container">
-                                    <form action="">
+                                    <form action="post">
                                         <input type="email" id="email" name="email" placeholder="enter your registered email id" requirgb(4, 139, 76)>
                                         <input type="button" value="Check Status" name="check"><br><br>
                                         </form>
