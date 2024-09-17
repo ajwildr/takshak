@@ -1,3 +1,14 @@
+<?php
+
+include('/registration/server/connect.php');
+                                    $mail = $_POST['mail'];
+
+                                    $sel_grp = "SELECT * FROM group_event WHERE mail='$mail'";
+                                    $grp_data = $conn->query($sel_grp);
+
+                                    $sel_ind = "SELECT * FROM individual_events WHERE mail='$mail'";
+                                    $ind_data = $conn->query($sel_ind);
+?>
 <!doctype html>
 <html class="no-js" lang="zxx">
 
@@ -222,18 +233,15 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>user1@example.com</td>
-                                                    <td>Donappi</td>
-                                                    <td>Active</td>
-                                                    <td>2024-09-16</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>user2@example.com</td>
-                                                    <td>Rockiey</td>
-                                                    <td>Inactive</td>
-                                                    <td>2024-09-15</td>
-                                                </tr>
+                                                 <?php while ($ind_event = $ind_data->fetch_assoc()) { ?>
+                                               <tr>
+                                            <td><?php echo $ind_event['mail']; ?></td>
+                                            <td><?php echo $ind_event['name']; ?></td>
+                                            <td><?php echo $ind_event['event_name']; ?></td>
+                                            <td><?php echo $ind_event['status']; ?></td>
+                                        </tr>
+                                        <?php } ?>
+                                              
                                             </tbody>
                                         </table>
                                         <br><br>
@@ -250,18 +258,15 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>user1@example.com</td>
-                                                    <td>Donappi</td>
-                                                    <td>Active</td>
-                                                    <td>2024-09-16</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>user2@example.com</td>
-                                                    <td>Rockiey</td>
-                                                    <td>Inactive</td>
-                                                    <td>2024-09-15</td>
-                                                </tr>
+                                                 <?php while ($grp_event = $grp_data->fetch_assoc()) { ?>
+                                        <tr>
+                                            <td><?php echo $grp_event['mail']; ?></td>
+                                            <td><?php echo $grp_event['captain_name']; ?></td>
+                                            <td><?php echo $grp_event['event_name']; ?></td>
+                                            <td><?php echo $grp_event['status']; ?></td>
+                                        </tr>
+                                        <?php } ?>
+                                                
                                             </tbody>
                                         </table>
                                     </form>
