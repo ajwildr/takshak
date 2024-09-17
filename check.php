@@ -201,7 +201,7 @@
                                         <?php } ?>
                                     </tbody>
                                 </table>
-                                <?php } ?>
+                                <?php sleep(3);} ?>
                             </div>
 
                         </div>
