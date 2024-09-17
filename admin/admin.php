@@ -200,7 +200,8 @@ $pre_ind_events=$conn->query($sel_ind_events);
     <!-- Individual Events Section -->
     <h2>Individual Events</h2>
     <table>
-        <tr>
+        <tr> 
+            <th>Name</th>
             <th>College Name</th>
             <th>Department Name</th>
             <th>Mail</th>
@@ -215,6 +216,7 @@ $pre_ind_events=$conn->query($sel_ind_events);
            {
         ?>
         <tr>
+            <td><?php echo($ind_events['name']) ?></td>
             <td><?php echo($ind_events['clg_name']) ?></td>
             <td><?php echo($ind_events['dept_name']) ?></td>
             <td><?php echo($ind_events['mail']) ?></td>
