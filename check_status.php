@@ -1,5 +1,5 @@
 <?php
-
+echo("hello");
 include('/registration/server/connect.php');
                                     $mail = $_POST['mail'];
 
