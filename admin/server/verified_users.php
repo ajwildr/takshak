@@ -176,6 +176,7 @@ if(isset($_SESSION['user']) && $_SESSION['user'] === "coordinator") {
     <h2>Individual Events</h2>
     <table>
         <tr>
+            <th>Name</th>
             <th>College Name</th>
             <th>Department Name</th>
             <th>Email ID</th>
@@ -187,6 +188,7 @@ if(isset($_SESSION['user']) && $_SESSION['user'] === "coordinator") {
         <!-- Fetching and displaying individual events data -->
         <?php while($ind_events = $pre_ind_events->fetch_assoc()) { ?>
         <tr>
+            <td><?php echo($ind_events['name']); ?></td>
             <td><?php echo($ind_events['clg_name']); ?></td>
             <td><?php echo($ind_events['dept_name']); ?></td>
             <td><?php echo($ind_events['mail']); ?></td>
