@@ -1,6 +1,6 @@
 <?php
 echo("hello");
-include('/registration/server/connect.php');
+include('registration/server/connect.php');
                                     $mail = $_POST['mail'];
 
                                     $sel_grp = "SELECT * FROM group_event WHERE mail='$mail'";
