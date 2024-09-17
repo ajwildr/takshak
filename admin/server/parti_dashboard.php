@@ -139,7 +139,10 @@ if(isset($_POST['sub_current'])){
 else if(isset($_POST['add_current']))
     {
         $add_current="UPDATE event_limit set current_reg=current_reg+1";
-        $conn->query($add_current);
+        if($conn->query($add_current))
+        {
+             echo "<script>window.location.href='/admin/coordinator.php';</script>";
+        }
         
     }
 else if(isset($_POST['sub_limit']))
