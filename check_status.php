@@ -210,22 +210,8 @@
                                 <h1>Registration Status</h1>
         
                                 <div class="container">
-                                    <form action="post">
-                                        <input type="email" id="email" name="email" placeholder="enter your registered email id" requirgb(4, 139, 76)>
-                                        <input type="button" value="Check Status" name="check"><br><br>
-                                        </form>
-                                    <?php
-                                        
-                                       if(isset($_POST['check']))
-                                    {  
-                                       
-                                        include('/registration/server/connect.php');
-                                        $mail=$_POST['email']
-                                        $sel_grp="select *  from group_event where mail='$mail'";
-                                        $grp_data=$conn->query($sel_grp);
-                                        $sel_ind="select * from individual_events where mail='$mail' ";
-                                        $ind_data=$conn->query($sel_ind);
-                                    ?>  <h1>Individual Events</h1>
+                                    <form action="">
+                                        <h1>Individual Events</h1>
                                         <table>
                                             <thead>
                                                 <tr>
@@ -236,19 +222,18 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <?php
-                                                while($ind_event=$ind_data->fetch_assoc())
-                                                 {
-                                                  ?>
                                                 <tr>
-                                                    <td><?php echo($ind_event['mail']) ?></td>
-                                                    <td><?//php echo($ind_event['name']) ?></td>
-                                                    <td><?php echo($ind_event['event_name']) ?></td>
-                                                    <td><?php echo($ind_event['event_status']) ?></td>
+                                                    <td>user1@example.com</td>
+                                                    <td>Donappi</td>
+                                                    <td>Active</td>
+                                                    <td>2024-09-16</td>
                                                 </tr>
-                                                <?php
-                                                 }
-                                                  ?>
+                                                <tr>
+                                                    <td>user2@example.com</td>
+                                                    <td>Rockiey</td>
+                                                    <td>Inactive</td>
+                                                    <td>2024-09-15</td>
+                                                </tr>
                                             </tbody>
                                         </table>
                                         <br><br>
@@ -265,22 +250,21 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <?php
-                                                  while($grp_event=$grp_data->fetch_assoc())
-                                                    {
-                                                ?>
                                                 <tr>
-                                                    <td><?php echo($grp_event['mail']) ?></td>
-                                                    <td><?php echo($grp_event['captain_name']) ?></td>
-                                                    <td><?php echo($grp_event['event_name']) ?></td>
-                                                    <td><?php echo($grp_event['status']) ?></td>
+                                                    <td>user1@example.com</td>
+                                                    <td>Donappi</td>
+                                                    <td>Active</td>
+                                                    <td>2024-09-16</td>
                                                 </tr>
-                                              <?php
-                                                }
-                                                ?>
+                                                <tr>
+                                                    <td>user2@example.com</td>
+                                                    <td>Rockiey</td>
+                                                    <td>Inactive</td>
+                                                    <td>2024-09-15</td>
+                                                </tr>
                                             </tbody>
                                         </table>
-                                    <?php } ?>
+                                    </form>
                                 </div>
 
                             <div class="shape_2 wow fadeInDown" data-wow-duration="1s" data-wow-delay=".2s">
