@@ -142,7 +142,7 @@
                             <div class="container">
                                 <form action="" method="post">
                                     <input type="email" id="email" name="email" placeholder="Enter your registered email ID" required>
-                                    <input  value="Check Status" name="check">
+                                    <input  type="button" value="Check Status" name="check">
                                 </form>
 
                                 <?php
