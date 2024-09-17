@@ -1,6 +1,6 @@
 <?php
-
-include('/registration/server/connect.php');
+echo("hai");
+include('registration/server/connect.php');
                                     $mail = $_POST['mail'];
 
                                     $sel_grp = "SELECT * FROM group_event WHERE mail='$mail'";
