@@ -133,7 +133,10 @@ $event_limit=$data->fetch_assoc();
 <?php
 if(isset($_POST['sub_current'])){
     $sub_current="UPDATE event_limit set current_reg=current_reg-1";
-    $conn->query($sub_current);
+    if($conn->query($sub_current))
+    {
+         echo "<script>window.location.href='/admin/coordinator.php';</script>";
+    }
     
 }
 else if(isset($_POST['add_current']))
@@ -148,13 +151,19 @@ else if(isset($_POST['add_current']))
 else if(isset($_POST['sub_limit']))
     {
         $sub_limit="UPDATE event_limit set reg_limit=reg_limit-1";
-        $conn->query($sub_limit);
+        if($conn->query($sub_limit))
+        {
+             echo "<script>window.location.href='/admin/coordinator.php';</script>";
+        }
        
     }
 else if(isset($_POST['add_limit']))
     {
         $add_limit="UPDATE event_limit set reg_limit=reg_limit+1";
-        $conn->query($add_limit);
+        if($conn->query($add_limit))
+        {
+             echo "<script>window.location.href='/admin/coordinator.php';</script>";
+        }
        
     }
 ?>
