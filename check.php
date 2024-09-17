@@ -140,7 +140,7 @@
                             <h1>Registration Status</h1>
 
                             <div class="container">
-                                <form action="" method="post">
+                                <form  method="post">
                                     <input type="email" id="email" name="email" placeholder="Enter your registered email ID" required>
                                     <input  type="button" value="Check Status" name="check">
                                 </form>
