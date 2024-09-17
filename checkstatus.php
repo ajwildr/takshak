@@ -220,7 +220,7 @@
                                     {  
                                        
                                         include('/registration/server/connect.php');
-                                        $mail=$_POST['mail']
+                                        $mail=$_POST['email']
                                         $sel_grp="select *  from group_event where mail='$mail'";
                                         $grp_data=$conn->query($sel_grp);
                                         $sel_ind="select * from individual_events where mail='$mail' ";
