@@ -140,9 +140,9 @@
                             <h1>Registration Status</h1>
 
                             <div class="container">
-                                <form method="POST" action="check_status.php">
+                                <form method="POST" >
                                     <input type="email" id="email" name="mail" placeholder="Enter your registered email ID" required>
-                                    <input  type="submit" value="Check Status" name="check">
+                                    <input  type="button" value="Check Status" name="check">
                                 </form>
 
                                 <?php
