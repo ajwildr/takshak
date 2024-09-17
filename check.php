@@ -147,6 +147,7 @@
 
                                 <?php
                                 if (isset($_POST['check'])) {
+                                    echo("hai");
                                     include('/registration/server/connect.php');
                                     $mail = $_POST['email'];
 
