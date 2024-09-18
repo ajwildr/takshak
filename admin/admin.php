@@ -127,12 +127,12 @@ $pre_ind_events=$conn->query($sel_ind_events);
 
     <!-- Header with Buttons -->
     <header>
-        <button onclick="location.href='server/event_dashboard.php'">Event Dashboard</button>
+        <button onclick="location.href='server/event_dashboard.php'">View Registrations Limits</button>
         <button onclick="location.href='create_user.php'">Add New User</button>
-        <button onclick="location.href='event_reg.php'">Event Creation</button>
-        <button onclick="location.href='server/event_list.php'">Event List</button>
-        <button onclick="location.href='server/users_list.php'">Users List</button>
-        <button onclick="location.href='/index.html'">LOG OUT</button>
+        <!--<button onclick="location.href='event_reg.php'">Add New Event</button>-->
+        <button onclick="location.href='server/event_list.php'">My Events</button>
+        <button onclick="location.href='server/users_list.php'">Manage Users</button>
+        <button onclick="location.href='/index.html'">Logout</button>
     </header>
 
     <!-- Group Events Section -->

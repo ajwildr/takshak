@@ -11,7 +11,7 @@ $data=$conn->query($sel);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User List</title>
+    <title>Manage Users</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -116,7 +116,7 @@ $data=$conn->query($sel);
 </head>
 <body>
 
-    <h2>User List</h2>
+    <h2>Manage Users</h2>
 
     <table>
         <thead>

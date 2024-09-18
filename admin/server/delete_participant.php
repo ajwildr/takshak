@@ -15,7 +15,7 @@ $pre_ind_events=$conn->query($sel_ind_events);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delete Participant</title>
+    <title>Delete Registrations</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -129,7 +129,7 @@ $pre_ind_events=$conn->query($sel_ind_events);
 </head>
 <body>
 
-    <h1>Delete Participant</h1>
+    <h1>Delete Registrations</h1>
     <button class="home-btn" onclick="window.location.href='/admin/coordinator.php';">Go to Home</button>
 
     <!-- Group Events Table -->

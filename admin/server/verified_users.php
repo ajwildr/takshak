@@ -19,7 +19,7 @@ if(isset($_SESSION['user']) && $_SESSION['user'] === "coordinator") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delete Participant</title>
+    <title>Verified Registrations</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -133,7 +133,7 @@ if(isset($_SESSION['user']) && $_SESSION['user'] === "coordinator") {
 </head>
 <body>
 
-    <h1>Delete Participant</h1>
+    <h1>Verified Registrations</h1>
     <button class="home-btn" onclick="window.location.href='/admin/coordinator.php';">Go to Home</button>
 
     <!-- Group Events Table -->

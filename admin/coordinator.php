@@ -126,10 +126,10 @@ $pre_ind_events=$conn->query($sel_ind_events);
 
     <!-- Header with Buttons -->
     <header>
-        <button onclick="location.href='server/verified_users.php'">Verified Entries</button>
-        <button onclick="location.href='server/parti_dashboard.php'">Participants Dashboard</button>
-        <button onclick="location.href='server/delete_participant.php'">Delete Entire</button>
-        <button onclick="location.href='/index.html'">LOG OUT</button>
+        <button onclick="location.href='server/verified_users.php'">Verified Registrations</button>
+        <button onclick="location.href='server/parti_dashboard.php'">Registrations Limit</button>
+        <button onclick="location.href='server/delete_participant.php'">Delete Registrations</button>
+        <button onclick="location.href='/index.html'">Logout</button>
     </header>
 
     <!-- Group Events Section -->
