@@ -75,6 +75,7 @@ $data=$conn->query($event_limit_details);
             <th>Event Name</th>
             <th>Current Registrations</th>
             <th>Registration Limit</th>
+            <th>Registration Fee</th>
         </tr>
     </thead>
     <tbody>
@@ -87,6 +88,7 @@ $data=$conn->query($event_limit_details);
             <td><?php echo($event_details['event_name']) ?></td>
             <td><?php echo($event_details['current_reg']) ?></td>
             <td><?php echo($event_details['reg_limit']) ?></td>
+            <td><?php echo($event_details['reg_fee']) ?></td>
         </tr>
        <?php
           }
