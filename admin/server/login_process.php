@@ -35,11 +35,11 @@ if ($stmt = $conn->prepare($sel_query)) {
     print_r($user_details);
     echo "<br>";
     sleep(1); // Delay for debugging
-    echo($user_details['pass']."     ".$pass);
+    echo "Stored password: " . $user_details['pass'] . " | Entered password: " . $pass . "<br>";
 
     if ($user_details) {
-        // Verify the password against the hashed password stored in the database
-        if (password_verify($pass, $user_details['pass'])) {
+        // Verify the password using plain text comparison
+        if ($pass == $user_details['pass']) {
             echo "Password verification successful.<br>";
             sleep(1); // Delay for debugging
 
