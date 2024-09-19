@@ -14,7 +14,7 @@ if (!mysqli_real_connect($conn, $hostname, $username, $password, $database, 3306
 }
 
 // Query to select all data from the users table
-$query = "SELECT id, event_name, username, pass, event_id FROM users";
+$query = "SELECT id, event_name, user_name, pass, event_id FROM users";
 
 // Execute the query
 $result = $conn->query($query);
