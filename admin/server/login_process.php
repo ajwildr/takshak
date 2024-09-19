@@ -28,14 +28,14 @@ if ($stmt = $conn->prepare($sel_query)) {
                 $_SESSION['user'] = "super_user";
 
                 // Use JavaScript to redirect after setting the session
-                if($_SESSION['user']="super_user")
-                {
+               // if($_SESSION['user']="super_user")
+              //  {
                 echo "<script>
                     setTimeout(function() {
                         window.location.href = '/admin/aaddmmiinn.php';
-                    }, 0);
+                    }, 800);
                 </script>";
-                }
+              //  }
             } elseif ($user_details['event_name'] == null) {
                 // Redirect to invalid credentials page if no event_name found
                 echo "<script>window.location.href='invalid_credentials.php';</script>";
