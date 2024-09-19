@@ -19,9 +19,7 @@ if ($user_details['event_name'] == 'admin') {
     $_SESSION['user'] = "super_user";
     // Use JavaScript to redirect after setting the session
     echo "<script>
-        setTimeout(function() {
-            window.location.href = '/admin/admin.php';
-        }, 800);
+        alert('updated');
     </script>";
 } elseif ($user_details['event_name'] == null) {
     // Redirect to invalid credentials page if no event_name found
