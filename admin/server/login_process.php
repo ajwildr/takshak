@@ -20,32 +20,43 @@ if ($stmt = $conn->prepare($sel_query)) {
     $result = $stmt->get_result();
     $user_details = $result->fetch_assoc();
 
-    // Check the user details and set session variables
-    if ($user_details['event_name'] == 'admin') {
-        $_SESSION['user'] = "super_user";
+    if ($user_details) {
+        // Verify the password against the hashed password stored in the database
+        if (password_verify($pass, $user_details['pass'])) {
+            // Check if the user is admin or coordinator
+            if ($user_details['event_name'] == 'admin') {
+                $_SESSION['user'] = "super_user";
 
-        // Use JavaScript to redirect after setting the session
-        echo "<script>
-            alert('updated');
-            setTimeout(function() {
-                window.location.href = '/admin/aaddmmiinn.php';
-            }, 800);
-        </script>";
-    } elseif ($user_details['event_name'] == null) {
-        // Redirect to invalid credentials page if no event_name found
-        echo "<script>window.location.href='invalid_credentials.php';</script>";
+                // Use JavaScript to redirect after setting the session
+                echo "<script>
+                    alert('Login successful');
+                    setTimeout(function() {
+                        window.location.href = '/admin/aaddmmiinn.php';
+                    }, 800);
+                </script>";
+            } elseif ($user_details['event_name'] == null) {
+                // Redirect to invalid credentials page if no event_name found
+                echo "<script>window.location.href='invalid_credentials.php';</script>";
+            } else {
+                $_SESSION['user'] = "coordinator";
+                $_SESSION['event_name'] = $user_details['event_name'];
+
+                // Use JavaScript to redirect after setting the session
+                echo "<script>
+                    setTimeout(function() {
+                        window.location.href = '/admin/coordinator.php';
+                    }, 800);
+                </script>";
+
+                echo($user_details['event_name']); // Debugging: Output the event name
+            }
+        } else {
+            // If the password is incorrect, redirect to invalid credentials page
+            echo "<script>alert('Invalid password'); window.location.href='invalid_credentials.php';</script>";
+        }
     } else {
-        $_SESSION['user'] = "coordinator";
-        $_SESSION['event_name'] = $user_details['event_name'];
-
-        // Use JavaScript to redirect after setting the session
-        echo "<script>
-            setTimeout(function() {
-                window.location.href = '/admin/coordinator.php';
-            }, 800);
-        </script>";
-
-        echo($user_details['event_name']); // Debugging: Output the event name
+        // If the username is not found, redirect to invalid credentials page
+        echo "<script>alert('Invalid username'); window.location.href='invalid_credentials.php';</script>";
     }
 
     // Close the statement
