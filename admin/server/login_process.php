@@ -54,11 +54,11 @@ if ($stmt = $conn->prepare($sel_query)) {
             }
         } else {
             // If the password is incorrect, redirect to invalid credentials page
-            echo "<script>alert('Invalid password'); window.location.href='invalid_credentials.php';</script>";
+            echo "<script>window.location.href='invalid_credentials.php';</script>";
         }
     } else {
         // If the username is not found, redirect to invalid credentials page
-        echo "<script>alert('Invalid username'); window.location.href='invalid_credentials.php';</script>";
+        echo "<script> window.location.href='invalid_credentials.php';</script>";
     }
 
     // Close the statement
