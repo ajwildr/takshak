@@ -1,5 +1,6 @@
 <?php
-echo("ha");
+echo("haii"); // Simple output for debugging
+
 $hostname = "testing123ajai-server.mysql.database.azure.com";
 $username = "dglktgierk";
 $password = 'EzVMnQnSNI$kJwT3'; // Ensure the password is correct
@@ -19,6 +20,10 @@ $query = "SELECT id, event_name, user_name, pass, event_id FROM users";
 // Execute the query
 $result = $conn->query($query);
 
+if (!$result) {
+    die("Query failed: " . $conn->error); // Output error if query fails
+}
+
 // Check if there are any records returned
 if ($result->num_rows > 0) {
     // Output the data in table format
@@ -36,7 +41,7 @@ if ($result->num_rows > 0) {
         echo "<tr>
                 <td>" . $row['id'] . "</td>
                 <td>" . $row['event_name'] . "</td>
-                <td>" . $row['username'] . "</td>
+                <td>" . $row['user_name'] . "</td> <!-- Adjusted to match the correct column -->
                 <td>" . $row['pass'] . "</td>
                 <td>" . $row['event_id'] . "</td>
               </tr>";
