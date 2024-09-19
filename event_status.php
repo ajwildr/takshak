@@ -1,5 +1,5 @@
 <?php
-echo("hai");
+
 // Database connection details
 $hostname = "testing123ajai-server.mysql.database.azure.com";
 $username = "dglktgierk";
