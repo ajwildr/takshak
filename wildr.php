@@ -1,4 +1,5 @@
 <?php
+echo("ha");
 $hostname = "testing123ajai-server.mysql.database.azure.com";
 $username = "dglktgierk";
 $password = 'EzVMnQnSNI$kJwT3'; // Ensure the password is correct
