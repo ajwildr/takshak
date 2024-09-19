@@ -35,6 +35,7 @@ if ($stmt = $conn->prepare($sel_query)) {
     print_r($user_details);
     echo "<br>";
     sleep(1); // Delay for debugging
+    echo($user_details['pass']."     ".$pass);
 
     if ($user_details) {
         // Verify the password against the hashed password stored in the database
