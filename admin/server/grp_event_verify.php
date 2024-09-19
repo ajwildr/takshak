@@ -8,7 +8,7 @@ $update_status="UPDATE group_event set status='verified' where reg_id ='$id'";
 if($conn->query($update_status))
     {   if($_SESSION['user']=="super_user")
             {
-               echo "<script>window.location.href = '/admin/admin.php';</script>";
+               echo "<script>window.location.href = '/admin/aaddmmiinn.php';</script>";
     
             }
         else{

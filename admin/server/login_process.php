@@ -21,7 +21,7 @@ if ($user_details['event_name'] == 'admin') {
     echo "<script>
         alert('updated');
         setTimeout(function() {
-            window.location.href = '/admin/admin.php';
+            window.location.href = '/admin/aaddmmiinn.php';
         }, 800);
     </script>";
 } elseif ($user_details['event_name'] == null) {

@@ -17,7 +17,7 @@ if($conn->query($update_status))
         $conn->query($update_limit);
         if($_SESSION['user']=="super_user")
             {
-               echo "<script>window.location.href = '/admin/admin.php';</script>";
+               echo "<script>window.location.href = '/admin/aaddmmiinn.php';</script>";
     
             }
         else{
