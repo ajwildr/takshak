@@ -1,5 +1,7 @@
 <?php
 session_start();
+if(isset($_SESSION['user']) && $_SESSION['user'] === "coordinator")
+{
 $event_name=$_SESSION['event_name'];
 include('connect.php');
 $sel="SELECT * from event_limit where event_name='$event_name'";
@@ -166,4 +168,5 @@ else if(isset($_POST['add_limit']))
         }
        
     }
+}
 ?>
