@@ -104,11 +104,13 @@ function verified_count($id, $conn) {
             <th>Registration Limit</th>
             <th>Registration Fee</th>
             <th>Verified Users</th>
+            <th>Total Amount Collected</th>
         </tr>
     </thead>
     <tbody>
         <?php while($event_details=$data->fetch_assoc())
     {
+        $amount = verified_count($event_details['event_id'], $conn)*$event_details['reg_fee'];
 
 ?>
         <tr>
@@ -118,6 +120,7 @@ function verified_count($id, $conn) {
             <td><?php echo($event_details['reg_limit']) ?></td>
             <td><?php echo($event_details['reg_fee']) ?></td>
             <td><?php echo verified_count($event_details['event_id'], $conn); ?></td>
+            <td><?php echo($amount) ?></td>
         </tr>
        <?php
           }
