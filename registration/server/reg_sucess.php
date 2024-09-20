@@ -57,7 +57,7 @@
 //header("Refresh: 3; url=/index.html");
  echo "<script>
         setTimeout(function() {
-            window.location.href = '/index.html';
+            window.location.href = '/check_status.php';
         }, 3000);
     </script>";
 ?>
