@@ -169,4 +169,7 @@ else if(isset($_POST['add_limit']))
        
     }
 }
+    else{
+    header("Location:restricted.php");
+ }
 ?>
