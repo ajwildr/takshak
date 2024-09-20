@@ -15,8 +15,8 @@ if (!mysqli_real_connect($conn, $hostname, $username, $password, $database, 3306
 echo "Connected successfully<br>";
 
 // Function to display the table structure
-function displayTableStructure($conn) {
-    $sql = "SHOW COLUMNS FROM individual_events";
+function displayTableStructure($conn, $tableName) {
+    $sql = "SHOW COLUMNS FROM $tableName";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -32,10 +32,10 @@ function displayTableStructure($conn) {
 
 // Display table structure before modifying
 echo "<h3>Table structure before modification:</h3>";
-displayTableStructure($conn);
+displayTableStructure($conn, 'group_event'); // Changed to group_event
 
 // SQL query to modify the length of dept_name column
-$sql = "ALTER TABLE individual_events MODIFY dept_name VARCHAR(50)";
+$sql = "ALTER TABLE group_event MODIFY dept_name VARCHAR(50)"; // Changed to group_event
 
 // Execute the query
 if ($conn->query($sql) === TRUE) {
@@ -46,7 +46,7 @@ if ($conn->query($sql) === TRUE) {
 
 // Display table structure after modifying
 echo "<h3>Table structure after modification:</h3>";
-displayTableStructure($conn);
+displayTableStructure($conn, 'group_event'); // Changed to group_event
 
 // Close the connection
 $conn->close();
