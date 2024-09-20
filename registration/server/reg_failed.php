@@ -91,16 +91,15 @@
         <p>Please contact the coordinator or site administrator for assistance.</p>
         
         <div class="contact-details">
+            <h2>Site Administrator</h2>
             <div class="contact-card">
-                <h2>Coordinator</h2>
-                <p>Name: <span>John Doe</span></p>
-                <p>Phone: <span>+1 234 567 890</span></p>
+                <p>Name: <span>Akhil Rock Babu</span></p>
+                <p>Phone: <span>+91 8111896096</span></p>
             </div>
             
             <div class="contact-card">
-                <h2>Site Administrator</h2>
-                <p>Name: <span>Jane Smith</span></p>
-                <p>Phone: <span>+1 987 654 321</span></p>
+                <p>Name: <span>Ajaidev S</span></p>
+                <p>Phone: <span>+91 8138892815</span></p>
             </div>
         </div>
     </div>
