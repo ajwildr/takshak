@@ -1,18 +1,31 @@
 <?php
 session_start();
-header("Content-Security-Policy: script-src 'none';");
-if((isset($_SESSION['user']) && $_SESSION['user'] === "super_user") )
-    {
-$_SESSION['user']="super_user";
-include('server/connect.php');
-$sel_grp_events="SELECT * from group_event order by time";
-$sel_ind_events="SELECT * from individual_events ORDER BY time";
-//pre record of grp events data object
-$pre_grp_events=$conn->query($sel_grp_events);
-//pre record of individual events data object
-$pre_ind_events=$conn->query($sel_ind_events);
 
+// Set Content Security Policy to prevent execution of any scripts
+//header("Content-Security-Policy: script-src 'none';");
 
+// Check if the user is logged in and is a super user
+if (isset($_SESSION['user']) && $_SESSION['user'] === "super_user") {
+    // Reinforce the session variable
+    $_SESSION['user'] = "super_user";
+    
+    // Include the database connection
+    include('server/connect.php');
+
+    // SQL queries to select group and individual events, ordered by time
+    $sel_grp_events = "SELECT * FROM group_event ORDER BY time";
+    $sel_ind_events = "SELECT * FROM individual_events ORDER BY time";
+
+    // Execute the queries
+    $pre_grp_events = $conn->query($sel_grp_events);
+    $pre_ind_events = $conn->query($sel_ind_events);
+    
+    // Check for query execution errors
+    if (!$pre_grp_events || !$pre_ind_events) {
+        // Log the error message and display a user-friendly message
+        error_log("Database Query Error: " . $conn->error);
+        die("An error occurred while fetching event data. Please try again later.");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,6 +34,7 @@ $pre_ind_events=$conn->query($sel_ind_events);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Page</title>
     <style>
+        /* Existing CSS Styles */
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
@@ -111,8 +125,9 @@ $pre_ind_events=$conn->query($sel_ind_events);
             background-color: #e53935;
             transform: scale(1.05);
         }
+
         .btn-pending {
-            background-color: orange; /* Red */
+            background-color: orange; /* Orange */
             color: white;
         }
 
@@ -120,8 +135,6 @@ $pre_ind_events=$conn->query($sel_ind_events);
             background-color: darkorange;
             transform: scale(1.05);
         }
-
-        
     </style>
 </head>
 <body>
@@ -147,7 +160,7 @@ $pre_ind_events=$conn->query($sel_ind_events);
             <th>Captain Name</th>
             <th>Team Members</th>
             <th>Phone Number</th>
-            <th>Email id</th>
+            <th>Email ID</th>
             <th>Alternate Phone Number</th>
             <th>Event Name</th>
             <th>Transaction ID</th>
@@ -155,47 +168,38 @@ $pre_ind_events=$conn->query($sel_ind_events);
             <th>Action</th>
         </tr>
 
-        <!-- Example Row -->
-         <?php while($grp_events=$pre_grp_events->fetch_assoc())
-           {
-         ?>
+        <!-- Group Events Rows -->
+        <?php while ($grp_events = $pre_grp_events->fetch_assoc()) { ?>
         <tr>
-            <td><?php echo($grp_events['clg_name'])?></td>
-            <td><?php echo($grp_events['dept_name'])?></td>
-            <td><?php echo($grp_events['team_name'])?></td>
-            <td><?php echo($grp_events['captain_name'])?></td>
-            <td><?php echo($grp_events['team_members'])?></td>
-            <td><?php echo($grp_events['phone'])?></td>
-            <td><?php echo($grp_events['mail'])?></td>
-            <td><?php echo($grp_events['alt_phone'])?></td>
-            <td><?php echo($grp_events['event_name'])?></td>
-            <td><?php echo($grp_events['transaction_id'])?></td>
-            <td><?php echo($grp_events['status'])?></td>
+            <td><?php echo htmlspecialchars($grp_events['clg_name'], ENT_QUOTES, 'UTF-8'); ?></td>
+            <td><?php echo htmlspecialchars($grp_events['dept_name'], ENT_QUOTES, 'UTF-8'); ?></td>
+            <td><?php echo htmlspecialchars($grp_events['team_name'], ENT_QUOTES, 'UTF-8'); ?></td>
+            <td><?php echo htmlspecialchars($grp_events['captain_name'], ENT_QUOTES, 'UTF-8'); ?></td>
+            <td><?php echo htmlspecialchars($grp_events['team_members'], ENT_QUOTES, 'UTF-8'); ?></td>
+            <td><?php echo htmlspecialchars($grp_events['phone'], ENT_QUOTES, 'UTF-8'); ?></td>
+            <td><?php echo htmlspecialchars($grp_events['mail'], ENT_QUOTES, 'UTF-8'); ?></td>
+            <td><?php echo htmlspecialchars($grp_events['alt_phone'], ENT_QUOTES, 'UTF-8'); ?></td>
+            <td><?php echo htmlspecialchars($grp_events['event_name'], ENT_QUOTES, 'UTF-8'); ?></td>
+            <td><?php echo htmlspecialchars($grp_events['transaction_id'], ENT_QUOTES, 'UTF-8'); ?></td>
+            <td><?php echo htmlspecialchars($grp_events['status'], ENT_QUOTES, 'UTF-8'); ?></td>
             <td>
                 <?php
-                   if($grp_events['status']=='pending')
-                   {
+                   if ($grp_events['status'] === 'pending') {
                 ?>
-                <a href="server/grp_event_verify.php?id=<?php echo $grp_events['reg_id'];?>" style="text-decoration: none;">
-                <button class="btn btn-verify">Verify</button></a>
-                <?php }
-                    else{
-                ?>
-                <a href="server/grp_event_to_pending.php?id=<?php echo $grp_events['reg_id'];?>" style="text-decoration: none;">
-                <button class="btn btn-pending">To Pending</button> </a>
-                <?php
-                    }
-                ?>
-                <a href="server/grp_event_reject.php?id=<?php echo $grp_events['reg_id'];?>" style="text-decoration: none;">
-                <button class="btn btn-reject">Reject</button>
+                <a href="server/grp_event_verify.php?id=<?php echo urlencode($grp_events['reg_id']); ?>" style="text-decoration: none;">
+                    <button class="btn btn-verify">Verify</button>
+                </a>
+                <?php } else { ?>
+                <a href="server/grp_event_to_pending.php?id=<?php echo urlencode($grp_events['reg_id']); ?>" style="text-decoration: none;">
+                    <button class="btn btn-pending">To Pending</button>
+                </a>
+                <?php } ?>
+                <a href="server/grp_event_reject.php?id=<?php echo urlencode($grp_events['reg_id']); ?>" style="text-decoration: none;">
+                    <button class="btn btn-reject">Reject</button>
                 </a>
             </td>
         </tr>
-        <?php
-           }
-        ?>
-
-        <!-- More rows can be added dynamically using PHP/JS -->
+        <?php } ?>
     </table>
 
     <!-- Individual Events Section -->
@@ -212,51 +216,42 @@ $pre_ind_events=$conn->query($sel_ind_events);
             <th>Status</th>
             <th>Action</th>
         </tr>
-        <?php
-           while($ind_events=$pre_ind_events->fetch_assoc())
-           {
-        ?>
+        <?php while ($ind_events = $pre_ind_events->fetch_assoc()) { ?>
         <tr>
-            <td><?php echo($ind_events['name']) ?></td>
-            <td><?php echo($ind_events['clg_name']) ?></td>
-            <td><?php echo($ind_events['dept_name']) ?></td>
-            <td><?php echo($ind_events['mail']) ?></td>
-            <td><?php echo($ind_events['phone']) ?></td>
-            <td><?php echo($ind_events['transaction_id']) ?></td>
-            <td><?php echo($ind_events['event_name']) ?></td>
-            <td><?php echo($ind_events['status']) ?></td>
+            <td><?php echo htmlspecialchars($ind_events['name'], ENT_QUOTES, 'UTF-8'); ?></td>
+            <td><?php echo htmlspecialchars($ind_events['clg_name'], ENT_QUOTES, 'UTF-8'); ?></td>
+            <td><?php echo htmlspecialchars($ind_events['dept_name'], ENT_QUOTES, 'UTF-8'); ?></td>
+            <td><?php echo htmlspecialchars($ind_events['mail'], ENT_QUOTES, 'UTF-8'); ?></td>
+            <td><?php echo htmlspecialchars($ind_events['phone'], ENT_QUOTES, 'UTF-8'); ?></td>
+            <td><?php echo htmlspecialchars($ind_events['transaction_id'], ENT_QUOTES, 'UTF-8'); ?></td>
+            <td><?php echo htmlspecialchars($ind_events['event_name'], ENT_QUOTES, 'UTF-8'); ?></td>
+            <td><?php echo htmlspecialchars($ind_events['status'], ENT_QUOTES, 'UTF-8'); ?></td>
             <td>
                 <?php
-                  if($ind_events['status']=='pending')
-                  {
-
+                  if ($ind_events['status'] === 'pending') {
                 ?>
-                <a href="server/ind_event_verify.php?id=<?php echo $ind_events['reg_id'];?>" style="text-decoration: none;">
-                  <button class="btn btn-verify">Verify</button> 
-                  </a>
-                <?php
-                  }
-                else
-                  {
-                ?>
-                    <a href="server/ind_event_to_pending.php?id=<?php echo $ind_events['reg_id'];?>" style="text-decoration: none;">
-                   <button class="btn btn-pending">To Pending</button></a>
-             <?php }?>
-             <a href="server/ind_event_reject.php?id=<?php echo $ind_events['reg_id'];?>" style="text-decoration: none;">
-                <button class="btn btn-reject">Reject</button></a>
+                <a href="server/ind_event_verify.php?id=<?php echo urlencode($ind_events['reg_id']); ?>" style="text-decoration: none;">
+                    <button class="btn btn-verify">Verify</button> 
+                </a>
+                <?php } else { ?>
+                <a href="server/ind_event_to_pending.php?id=<?php echo urlencode($ind_events['reg_id']); ?>" style="text-decoration: none;">
+                    <button class="btn btn-pending">To Pending</button>
+                </a>
+                <?php } ?>
+                <a href="server/ind_event_reject.php?id=<?php echo urlencode($ind_events['reg_id']); ?>" style="text-decoration: none;">
+                    <button class="btn btn-reject">Reject</button>
+                </a>
             </td>
         </tr>
-    <?php
-           }
-    ?>
-        <!-- Add more rows as needed -->
-
-</table>
+        <?php } ?>
+    </table>
 
 </body>
 </html>
-<?php }
- else{
-    header("Location:server/restricted.php");
- }
+<?php
+} else {
+    // Redirect to a restricted access page if user is not a super user
+    header("Location: server/restricted.php");
+    exit();
+}
 ?>
