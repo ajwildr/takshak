@@ -1,5 +1,6 @@
 <?php
 session_start();
+header("Content-Security-Policy: script-src 'none';");
 if(isset($_SESSION['user']) && $_SESSION['user'] === "coordinator")
 {
 $event_name=$_SESSION['event_name'];
