@@ -91,7 +91,7 @@
         <p>Please contact the coordinator or site administrator for assistance.</p>
         
         <div class="contact-details">
-            <h2>Site Administrator</h2>
+            <h2>Site Administrator</h2><br>
             <div class="contact-card">
                 <p>Name: <span>Akhil Rock Babu</span></p>
                 <p>Phone: <span>+91 8111896096</span></p>
