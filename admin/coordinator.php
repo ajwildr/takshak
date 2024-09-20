@@ -2,7 +2,7 @@
 session_start();
 
 // Set Content Security Policy to prevent execution of any scripts
-header("Content-Security-Policy: script-src 'none';");
+//header("Content-Security-Policy: script-src 'none';");
 
 // Check if the user is logged in and has the role of "coordinator"
 if (isset($_SESSION['user']) && $_SESSION['user'] === "coordinator") {
