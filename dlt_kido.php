@@ -16,7 +16,7 @@ echo "Connected successfully<br>";
 // Ensure this file initializes $conn with the database connection
 
 // SQL query to delete rows from the individual_events table where mail starts with 'kido'
-$dlt_query = "DELETE FROM group_event WHERE mail LIKE 'test%'";
+$dlt_query = "DELETE FROM individual_events WHERE mail LIKE 'test%'";
 
 if ($conn->query($dlt_query)) {
     echo "Deletion successful";
