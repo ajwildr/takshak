@@ -101,7 +101,7 @@ function verified_count($id, $conn) {
             <th>Event ID</th>
             <th>Event Name</th>
             <th>Current Registrations</th>
-            <!--<th>Registration Limit</th>-->
+            <th>Registration Limit</th>
             <th>Registration Fee</th>
             <th>Verified Users</th>
             <th>Total Amount Collected</th>
@@ -117,7 +117,7 @@ function verified_count($id, $conn) {
             <td><?php echo($event_details['event_id']) ?></td>
             <td><?php echo($event_details['event_name']) ?></td>
             <td><?php echo($event_details['current_reg']) ?></td>
-            <!--<td><?php echo($event_details['reg_limit']) ?></td>-->
+            <td><?php echo($event_details['reg_limit']) ?></td>
             <td><?php echo($event_details['reg_fee']) ?></td>
             <td><?php echo verified_count($event_details['event_id'], $conn); ?></td>
             <td><?php echo($amount) ?></td>
