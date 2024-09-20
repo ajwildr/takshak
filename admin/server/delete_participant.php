@@ -1,6 +1,7 @@
 <?php
-session_start();
 include('server/connect.php');
+session_start();
+
 
 // Set Content Security Policy to prevent execution of any scripts
 //header("Content-Security-Policy: script-src 'none';");
