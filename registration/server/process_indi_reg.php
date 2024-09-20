@@ -54,7 +54,7 @@ if ($stmt1 === false) {
 $stmt1->bind_param("sisssssssssss", $name, $event_id, $clg, $dpt_name, $mail, $phn, $trans_id, $event_name, $ip_address, $user_agent, $city, $region, $country);
 
 // Execute the prepared statement
-if ($stmt->execute()) {
+if ($stmt1->execute()) {
     echo "Record inserted successfully.";
 } else {
     echo "Error inserting record: " . $stmt->error;
