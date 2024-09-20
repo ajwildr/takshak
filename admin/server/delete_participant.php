@@ -1,5 +1,6 @@
 <?php
 session_start();
+include('server/connect.php');
 
 // Set Content Security Policy to prevent execution of any scripts
 //header("Content-Security-Policy: script-src 'none';");
@@ -16,7 +17,7 @@ if (isset($_SESSION['user']) && $_SESSION['user'] === "coordinator") {
     $event_name = $_SESSION['event_name'];
 
     // Include the database connection
-    include('server/connect.php');
+    
 
     // **Security Enhancement:** Use prepared statements to prevent SQL injection
 
