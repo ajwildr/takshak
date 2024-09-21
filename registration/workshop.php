@@ -80,7 +80,7 @@ if($current_reg<$limit)
                             <div class="name">Email</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="email" placeholder="enter your email id" name="email" required pattern="[a-z]+@gmail\.com" title="Please enter a valid Gmail address with only lowercase letters" required>
+                                    <input class="input--style-5" type="email" placeholder="enter your email id" name="email" required pattern="[a-z0-9._%+-]+@gmail\.com" title="Please enter a valid Gmail address with only lowercase letters" required>
                                 </div>
                             </div>
                         </div>
