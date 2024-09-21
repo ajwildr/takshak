@@ -1,8 +1,8 @@
 <?php
 
 // Database connection details
-//$hostname = "testing123ajai-server.mysql.database.azure.com";
-//$username = "dglktgierk";
+$hostname = "testing123ajai-server.mysql.database.azure.com";
+$username = "dglktgierk";
 $password = 'EzVMnQnSNI$kJwT3'; // Ensure the password is correct
 $database = "thakshak"; // Ensure this matches the database name
 
@@ -153,26 +153,26 @@ if ($stmt_ind = $conn->prepare($sel_ind)) {
 <body>
 
     <header>
-        <div class="header-area ">
+        <div class="header-area">
             <div id="sticky-header" class="main-header-area">
                 <div class="container">
                     <div class="header_bottom_border">
                         <div class="row align-items-center">
                             <div class="col-xl-3 col-lg-3">
                                 <div class="logo">
-                                    <a href="index.html"></a>
+                                    <a href="index.html">
                                         <img src="img/logo.png" alt="">
                                     </a>
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6">
-                                <div class="main-menu  d-none d-lg-block">
+                                <div class="main-menu d-none d-lg-block">
                                     <nav>
                                         <ul id="navigation">
                                             <li><a href="index.html">Home</a></li>
                                             <li><a href="about.html">About</a></li>
                                             <li><a href="#">Check Status</a></li>
-                                            <li><a href="admin\login_page.php">Login</a></li>
+                                            <li><a href="admin/login_page.php">Login</a></li>
                                             <li><a href="contact.html">Contact</a></li>
                                         </ul>
                                     </nav>
@@ -217,10 +217,10 @@ if ($stmt_ind = $conn->prepare($sel_ind)) {
                                         <tbody>
                                             <?php while ($ind_event = $ind_data->fetch_assoc()) { ?>
                                             <tr>
-                                                <td><?php echo $ind_event['mail']; ?></td>
-                                                <td><?php echo $ind_event['name']; ?></td>
-                                                <td><?php echo $ind_event['event_name']; ?></td>
-                                                <td><?php echo $ind_event['status']; ?></td>
+                                                <td><?php echo htmlspecialchars($ind_event['mail']); ?></td>
+                                                <td><?php echo htmlspecialchars($ind_event['name']); ?></td>
+                                                <td><?php echo htmlspecialchars($ind_event['event_name']); ?></td>
+                                                <td><?php echo htmlspecialchars($ind_event['status']); ?></td>
                                             </tr>
                                             <?php } ?>
                                         </tbody>
@@ -239,10 +239,10 @@ if ($stmt_ind = $conn->prepare($sel_ind)) {
                                         <tbody>
                                             <?php while ($grp_event = $grp_data->fetch_assoc()) { ?>
                                             <tr>
-                                                <td><?php echo $grp_event['mail']; ?></td>
-                                                <td><?php echo $grp_event['captain_name']; ?></td>
-                                                <td><?php echo $grp_event['event_name']; ?></td>
-                                                <td><?php echo $grp_event['status']; ?></td>
+                                                <td><?php echo htmlspecialchars($grp_event['mail']); ?></td>
+                                                <td><?php echo htmlspecialchars($grp_event['captain_name']); ?></td>
+                                                <td><?php echo htmlspecialchars($grp_event['event_name']); ?></td>
+                                                <td><?php echo htmlspecialchars($grp_event['status']); ?></td>
                                             </tr>
                                             <?php } ?>
                                         </tbody>
