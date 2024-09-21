@@ -52,7 +52,7 @@ if($current_reg<$limit)
                             <div class="name">College Name</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="text" placeholder="enter your College" name="collegename" required>
+                                    <input class="input--style-5" type="text" placeholder="enter your College" name="collegename" required pattern="[A-Za-z\s]+" title="Only letters and spaces are allowed" required>
                                 </div>
                             </div>
                         </div>
@@ -60,7 +60,7 @@ if($current_reg<$limit)
                             <div class="name">Department Name</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="text" placeholder="enter your department" name="department" required>
+                                    <input class="input--style-5" type="text" placeholder="enter your department" name="department" required pattern="[A-Za-z\s]+" title="Only letters and spaces are allowed" required>
                                 </div>
                             </div>
                         </div>
@@ -69,7 +69,7 @@ if($current_reg<$limit)
                             <div class="name">Name</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="text" placeholder="enter your name" name="name" required>
+                                    <input class="input--style-5" type="text" placeholder="enter your name" name="name" required pattern="[A-Za-z\s]+" title="Only letters and spaces are allowed" required>
                                 </div>
                             </div>
                         </div>
@@ -80,7 +80,7 @@ if($current_reg<$limit)
                             <div class="name">Email</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="email" placeholder="enter your email id" name="email" title="Enter a valid email id" required>
+                                    <input class="input--style-5" type="email" placeholder="enter your email id" name="email" required pattern="[a-z]+@gmail\.com" title="Please enter a valid Gmail address with only lowercase letters" required>
                                 </div>
                             </div>
                         </div>
