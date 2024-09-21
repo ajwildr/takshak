@@ -27,11 +27,25 @@ $phn = $_POST['phone'];
 $trans_id = $_POST['transaction'];
 
 // Fetch IP address and details
-$ip_address = $_SERVER['REMOTE_ADDR'];
+if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+    $ip_address = explode(',', $_SERVER['HTTP_X_FORWARDED_FOR'])[0]; // Get the first IP address
+} else {
+    $ip_address = $_SERVER['REMOTE_ADDR'];
+}
+
+// Prepare the SQL query with placeholders
+$sql1 = "INSERT INTO reg_logs 
+        (name, event_id, clg_name, dept_name, mail, phone, transaction_id, event_name, user_ip, user_agent, city, region, country, time_of_access) 
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
+
+// Concatenate the client IP and remote address
+$client_ip = $_SERVER['REMOTE_ADDR'];
+$combined_ip = $client_ip . '-' . $ip_address;
+
 $user_agent = $_SERVER['HTTP_USER_AGENT'];
 
 // Use ipstack with your API key
-$ip_data = @json_decode(file_get_contents("http://api.ipstack.com/{$ip_address}?access_key=f443f932524fbc786a560c54c9200261"));
+$ip_data = @json_decode(file_get_contents("http://api.ipstack.com/{$client_ip}?access_key=f443f932524fbc786a560c54c9200261"));
 
 if ($ip_data && isset($ip_data->city, $ip_data->region, $ip_data->country)) {
     $city = $ip_data->city;
@@ -44,18 +58,13 @@ if ($ip_data && isset($ip_data->city, $ip_data->region, $ip_data->country)) {
     $country = "Unknown";
 }
 
-// Prepare the SQL query with placeholders
-$sql1 = "INSERT INTO reg_logs 
-        (name, event_id, clg_name, dept_name, mail, phone, transaction_id, event_name, user_ip, user_agent, city, region, country, time_of_access) 
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
-
 $stmt1 = $conn->prepare($sql1);
 
 if ($stmt1 === false) {
     die("Error preparing the statement: " . $conn->error);
 }
 
-$stmt1->bind_param("sisssssssssss", $name, $event_id, $clg, $dpt_name, $mail, $phn, $trans_id, $event_name, $ip_address, $user_agent, $city, $region, $country);
+$stmt1->bind_param("sisssssssssss", $name, $event_id, $clg, $dpt_name, $mail, $phn, $trans_id, $event_name, $combined_ip, $user_agent, $city, $region, $country);
 
 if ($stmt1->execute()) {
     echo "Record inserted successfully.";
