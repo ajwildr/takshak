@@ -17,7 +17,7 @@ if (!mysqli_real_connect($conn, $hostname, $username, $password, $database, 3306
 $mail = $_POST['mail'];
 
 // Use prepared statements to prevent SQL injection for the group event
-$sel_grp = "SELECT * FROM group_event WHERE mail = ?";
+$sel_grp = "SELECT * FROM group_event WHERE mail = ? and status!='deleted'";
 if ($stmt_grp = $conn->prepare($sel_grp)) {
     $stmt_grp->bind_param("s", $mail); // "s" is for string
     $stmt_grp->execute();
@@ -26,7 +26,7 @@ if ($stmt_grp = $conn->prepare($sel_grp)) {
 }
 
 // Use prepared statements to prevent SQL injection for the individual events
-$sel_ind = "SELECT * FROM individual_events WHERE mail = ?";
+$sel_ind = "SELECT * FROM individual_events WHERE mail = ? and status!='deleted'";
 if ($stmt_ind = $conn->prepare($sel_ind)) {
     $stmt_ind->bind_param("s", $mail); // "s" is for string
     $stmt_ind->execute();
