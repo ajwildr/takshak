@@ -1,5 +1,16 @@
 <?php
 // Include the database connection file
+
+
+// Set headers to trigger file download
+header('Content-Type: application/octet-stream');
+header('Content-Disposition: attachment; filename="database_backup_' . date('Y-m-d_H-i-s') . '.sql"');
+header('Pragma: no-cache');
+header('Expires: 0');
+
+// Output buffering to ensure everything is sent as one download
+ob_start();
+
 $hostname = "testing123ajai-server.mysql.database.azure.com";
 $username = "dglktgierk";
 $password = 'EzVMnQnSNI$kJwT3'; // Ensure the password is correct
@@ -12,15 +23,6 @@ $conn = mysqli_init();
 if (!mysqli_real_connect($conn, $hostname, $username, $password, $database, 3306)) {
     die("Connection failed: " . mysqli_connect_error());
 }
-
-// Set headers to trigger file download
-header('Content-Type: application/octet-stream');
-header('Content-Disposition: attachment; filename="database_backup_' . date('Y-m-d_H-i-s') . '.sql"');
-header('Pragma: no-cache');
-header('Expires: 0');
-
-// Output buffering to ensure everything is sent as one download
-ob_start();
 
 // Get all tables in the database
 $tables = array();
