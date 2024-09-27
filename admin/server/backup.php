@@ -67,3 +67,4 @@ ob_end_flush();
 
 // Close the database connection
 mysqli_close($conn);
+?>
