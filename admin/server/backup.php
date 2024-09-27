@@ -2,9 +2,14 @@
 // Include the database connection file
 include("connect.php");
 
-// Set headers for file download
-header('Content-Type: application/sql');
+// Set headers to trigger file download
+header('Content-Type: application/octet-stream');
 header('Content-Disposition: attachment; filename="database_backup_' . date('Y-m-d_H-i-s') . '.sql"');
+header('Pragma: no-cache');
+header('Expires: 0');
+
+// Output buffering to ensure everything is sent as one download
+ob_start();
 
 // Get all tables in the database
 $tables = array();
@@ -14,7 +19,7 @@ while ($row = mysqli_fetch_row($result)) {
     $tables[] = $row[0];
 }
 
-// Output the content directly to the browser
+// Output the content directly to the download file
 foreach ($tables as $table) {
     // Get the CREATE TABLE statement
     $createTableResult = mysqli_query($conn, "SHOW CREATE TABLE $table");
@@ -27,23 +32,4 @@ foreach ($tables as $table) {
     $tableDataResult = mysqli_query($conn, "SELECT * FROM $table");
     
     while ($row = mysqli_fetch_assoc($tableDataResult)) {
-        $columns = array_keys($row);
-        $values = array_values($row);
-
-        // Format the INSERT INTO statement
-        $columns = implode("`, `", $columns);
-        $values = array_map(function($value) use ($conn) {
-            return "'" . mysqli_real_escape_string($conn, $value) . "'";
-        }, $values);
-        $values = implode(", ", $values);
-        
-        $insertSQL = "INSERT INTO `$table` (`$columns`) VALUES ($values);\n";
-        
-        // Output the INSERT INTO statement
-        echo $insertSQL;
-    }
-}
-
-// Close the database connection
-mysqli_close($conn);
-?>
+        $colum
