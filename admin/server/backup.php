@@ -11,7 +11,7 @@ header('Expires: 0');
 // Output buffering to ensure everything is sent as one download
 ob_start();
 
-$hostname = "testing123ajai-server.mysql.database.azure.com";
+//$hostname = "testing123ajai-server.mysql.database.azure.com";
 $username = "dglktgierk";
 $password = 'EzVMnQnSNI$kJwT3'; // Ensure the password is correct
 $database = "thakshak"; // Ensure this matches the database name
