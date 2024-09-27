@@ -45,4 +45,25 @@ foreach ($tables as $table) {
     $tableDataResult = mysqli_query($conn, "SELECT * FROM $table");
     
     while ($row = mysqli_fetch_assoc($tableDataResult)) {
-        $colum
+        $columns = array_keys($row);
+        $values = array_values($row);
+
+        // Format the INSERT INTO statement
+        $columns = implode("`, `", $columns);
+        $values = array_map(function($value) use ($conn) {
+            return "'" . mysqli_real_escape_string($conn, $value) . "'";
+        }, $values);
+        $values = implode(", ", $values);
+        
+        $insertSQL = "INSERT INTO `$table` (`$columns`) VALUES ($values);\n";
+        
+        // Output the INSERT INTO statement
+        echo $insertSQL;
+    }
+}
+
+// Flush the output buffer to ensure all content is sent to the browser for download
+ob_end_flush();
+
+// Close the database connection
+mysqli_close($conn);
