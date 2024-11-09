@@ -1,11 +1,22 @@
 <?php
-try {
-    // Connect using PDO
-    $conn = new PDO("sqlsrv:server = tcp:takshak.database.windows.net,1433; Database = thakshak", "thakshak1", "takshak@123");
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "Connection successful using PDO!";
-} catch (PDOException $e) {
-    echo "Error connecting to SQL Server: " . $e->getMessage();
-    die();
+// Connection information
+$serverName = "tcp:takshak.database.windows.net,1433";
+$connectionInfo = [
+    "UID" => "thakshak1",
+    "pwd" => "takshak@123",
+    "Database" => "thakshak",
+    "LoginTimeout" => 30,
+    "Encrypt" => 1,
+    "TrustServerCertificate" => 0
+];
+
+// Connect using sqlsrv
+$conn = sqlsrv_connect($serverName, $connectionInfo);
+
+if ($conn) {
+    echo "Connection successful using SQL Server Extension!";
+} else {
+    echo "Connection failed: ";
+    die(print_r(sqlsrv_errors(), true));
 }
 ?>
